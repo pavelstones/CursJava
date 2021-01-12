@@ -102,7 +102,7 @@ class divizibil {
                 if (a % 5 == 0){
                     System.out.println(a + " este divizibil cu 5");
             }else{
-                System.out.println(a + " nu este divizibil cu 5");
+                System.out.println(a + " nu este divizibil cu 5!!!");
                 }
     }
 }
