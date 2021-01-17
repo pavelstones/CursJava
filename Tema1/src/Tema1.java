@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @author APAVEL
  */
-public class Tema1{
+public class Tema1 {
 
     public static void main(String[] args) {
         //numereAleatoare();
@@ -17,9 +17,8 @@ public class Tema1{
         //triunghi();
         //divizivil();
         //semafor();
-        //CNP();
-        doua();
-        
+        CNP();
+
     }
 
     public static void numereAleatoare() {
@@ -129,7 +128,7 @@ public class Tema1{
 
         Random An = new Random();
         int low = 10;
-        int high = 100;
+        int high = 99;
         int result_An = An.nextInt(high - low) + low;
 
         Random Luna = new Random();
@@ -137,24 +136,39 @@ public class Tema1{
         int luna_mare = 13;
         int result_luna = Luna.nextInt(luna_mare - luna_mic) + luna_mic;
 
+        String luna_str = String.valueOf(result_luna);
+
+        if (result_luna < 10) {
+            luna_str = "0" + luna_str;
+        }
+        
         Random Zi = new Random();
         int zi_mic = 1;
         int zi_mare = 28;
         int result_zi = Zi.nextInt(zi_mare - zi_mic) + zi_mic;
+
+        String zi_str = String.valueOf(result_zi);
+
+        if (result_zi < 10) {
+            zi_str = "0" + zi_str;
+        } 
 
         Random unic = new Random();
         int rest_mic = 100000;
         int rest_mare = 999999;
         int result_unic = unic.nextInt(rest_mare - rest_mic) + rest_mic;
 
-        System.out.println("CNP aleator este: " + Sex + result_An + result_luna + result_zi + result_unic);
+        System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
 
-    }
-    
-    public static void doua (){
-        int x = 2;
-int y = 2;
-int z = (((x++) + (++y)) >5 && ((++x)+y)<10);
-        System.out.println("doua" + z);
+        if(Sex == 1){
+            System.out.println("Este barbat");
+        }else if( Sex == 5){
+            System.out.println("Este barbat");
+        }else if(Sex == 2){
+                    System.out.println("Este femeie");
+                    }
+            else if (Sex == 6){
+                    System.out.println("Este femeie");
+                    }
     }
 }
