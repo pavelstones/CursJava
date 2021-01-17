@@ -158,13 +158,13 @@ public class Tema1 {
         int rest_mare = 999999;
         int result_unic = unic.nextInt(rest_mare - rest_mic) + rest_mic;
 
-        System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
+        /*System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
 
         if (Sex == 1 || Sex == 5) {
             System.out.println("Este barbat");
         }
         if (Sex == 2 || Sex == 6) {
             System.out.println("Este femeie");
-        }
+        }*/
     }
 }
