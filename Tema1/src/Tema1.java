@@ -141,7 +141,7 @@ public class Tema1 {
         if (result_luna < 10) {
             luna_str = "0" + luna_str;
         }
-        
+
         Random Zi = new Random();
         int zi_mic = 1;
         int zi_mare = 28;
@@ -151,7 +151,7 @@ public class Tema1 {
 
         if (result_zi < 10) {
             zi_str = "0" + zi_str;
-        } 
+        }
 
         Random unic = new Random();
         int rest_mic = 100000;
@@ -160,15 +160,11 @@ public class Tema1 {
 
         System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
 
-        if(Sex == 1){
+        if (Sex == 1 || Sex == 5) {
             System.out.println("Este barbat");
-        }else if( Sex == 5){
-            System.out.println("Este barbat");
-        }else if(Sex == 2){
-                    System.out.println("Este femeie");
-                    }
-            else if (Sex == 6){
-                    System.out.println("Este femeie");
-                    }
+        }
+        if (Sex == 2 || Sex == 6) {
+            System.out.println("Este femeie");
+        }
     }
 }
