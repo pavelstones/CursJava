@@ -1,9 +1,0 @@
-varsta
-Tema1
-NumereDouaCifre
-NumereAleatorii
-divizibil
-NumereAleatoare
-numereAleatorii
-triunghi
-Triunghi

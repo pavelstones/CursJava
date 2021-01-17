@@ -1,108 +1,160 @@
 
-import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 /**
  *
  * @author APAVEL
  */
- public class Tema1 {
- 
-  public static void main(String[] args) {
-  double d = Math.random();
-  System.out.println("Valoarea d este:" + d);
- 
-  int rand = (int)(Math.random() * 101);
-  System.out.println("Numar intreg:" + rand);
- 
-  int M = 20;
-      System.out.println("M: " + M);
-  int N = 200;
-      System.out.println("N: " + N);
-  int random_int = (int) (Math.random() * (N - M + 1) + M);
-  System.out.println("Valoarea generata dintre M si N este:" + random_int);
- }
-  } 
-class NumereAleatoare {
+public class Tema1{
 
     public static void main(String[] args) {
+        //numereAleatoare();
+        //genereazaNumar();
+        //varsta();
+        //numereAleatoare_N1_N2();
+        //triunghi();
+        //divizivil();
+        //semafor();
+        //CNP();
+        doua();
+        
+    }
+
+    public static void numereAleatoare() {
         double d = Math.random();
-        System.out.println("Valoarea d este:" + d);
-
-        double threeLength = 100;
-        int rand = (int) (Math.random() * threeLength);
-        System.out.println("Numar intreg:" + rand);
-
-        int M = 0;
-        int N = 100;
-        int random_int = (int) (Math.random() * (N - M + 1) + M);
-
-        System.out.println("Valoarea dintre M si N este:" + random_int);
+        System.out.println("Numar aleator: " + d);
+        System.out.println("Numere intre 0 si 100: " + (int) (Math.random() * 101));
+        int m = (int) (Math.random() * 100);
+        int n = (int) (Math.random() * 100);
+        int nRand = m + (n - m);
+        System.out.println("Valorile intre M si N sunt:" + nRand);
     }
-}
-   class varsta {
 
-        public static void main (String[] args) {
-            
-            int rand = (int) (Math.random() * 101);
-            System.out.println("Varsta:" + rand);
-
-            
-            if (rand > 65) {
-                System.out.println("Persoana a iesit la pensie. Are " + rand + " de ani!");
-            } else {
-                System.out.println("Persoana mai are de lucrat " + (65 - rand)+ " de ani!");
-            }
+    public static void genereazaNumar() {
+        int min = (int) (Math.random() * 100);
+        int max = (int) (Math.random() * 100);
+        if (min > max) {
+            int aux = max;
+            max = min;
+            min = aux;
         }
-    
-}
+        int nRand = max + (min - max);
+        System.out.println("Diferenta dintre min si max este: " + nRand);
 
-class NumereAleatorii {
-    public static void main (String[] args){
-        
-  int N1 = (int) (Math.random() * 101);
-       System.out.println("Numarul 1 este:" + N1);
-  int N2 = (int) (Math.random() * 101);
+    }
+
+    public static void varsta() {
+
+        int rand = (int) (Math.random() * 101);
+        System.out.println("Varsta:" + rand);
+
+        if (rand > 65) {
+            System.out.println("Persoana a iesit la pensie. Are " + rand + " de ani!");
+        } else {
+            System.out.println("Persoana mai are de lucrat " + (65 - rand) + " de ani!");
+        }
+    }
+
+    public static void numereAleatoare_N1_N2() {
+
+        int N1 = (int) (Math.random() * 101);
+        System.out.println("Numarul 1 este:" + N1);
+        int N2 = (int) (Math.random() * 101);
         System.out.println("Numarul 2 este: " + N2);
-   if (N1>N2){
-       System.out.println("Numarul N1 " + N1 + " este mai mare decat numarul N2 " + N2);
-   }else {
-       System.out.println("Numarul N2 " + N2 + " este mai mare decat numarul N1 " + N1);
-   }
+        if (N1 > N2) {
+            System.out.println("Numarul N1 - " + N1 + " este mai mare decat numarul N2 - " + N2);
+        } else {
+            System.out.println("Numarul N2 - " + N2 + " este mai mare decat numarul N1 - " + N1);
+        }
     }
-}
-class Triunghi {
-    public static void main (String[] args){
-        
-        int a =(int) (Math.random() * 101);
-        System.out.println("Latura a este: " + a);
-        
-        int b =(int) (Math.random() * 101);
-        System.out.println("Latura b este: " + b);
-        
-        //int c = Math.sqrt(a) + Math.sqrt(b);
-        System.out.println("Ipotenuza este: " + (Math.sqrt(a) + Math.sqrt(b)) );
-        
-    }
-}
 
-class divizibil {
-    public static void main (String[] args){
-        
-                int a =(int)(Math.random() * 101);
-            if (a % 2 == 0){
-                System.out.println(a + " este divizibil cu 2");
-            }else{
-                System.out.println(a + " nu este divizibil cu 2");
-            }
-            if (a % 3 == 0){
-                System.out.println(a + " este divizibil cu 3");
-            }else{
-                System.out.println(a + " nu este divizibil cu 3");
-            }
-                if (a % 5 == 0){
-                    System.out.println(a + " este divizibil cu 5");
-            }else{
-                System.out.println(a + " nu este divizibil cu 5!!!");
-                }
+    public static void triunghi() {
+
+        int a = (int) (Math.random() * 101);
+        System.out.println("Latura a este: " + a);
+
+        int b = (int) (Math.random() * 101);
+        System.out.println("Latura b este: " + b);
+
+        //int c = Math.sqrt(a) + Math.sqrt(b);
+        System.out.println("Ipotenuza este: " + (Math.sqrt(a) + Math.sqrt(b)));
+
+    }
+
+    public static void divizivil() {
+
+        int a = (int) (Math.random() * 101);
+        if (a % 2 == 0) {
+            System.out.println(a + " este divizibil cu 2");
+        } else {
+            System.out.println(a + " nu este divizibil cu 2");
+        }
+        if (a % 3 == 0) {
+            System.out.println(a + " este divizibil cu 3");
+        } else {
+            System.out.println(a + " nu este divizibil cu 3");
+        }
+        if (a % 5 == 0) {
+            System.out.println(a + " este divizibil cu 5");
+        } else {
+            System.out.println(a + " nu este divizibil cu 5!!!");
+        }
+    }
+
+    public static void semafor() {
+
+        int nRand = (int) (Math.random() * 3);
+        switch (nRand) {
+            case 0:
+                System.out.println("Culoarea rosu");
+                break;
+            case 1:
+                System.out.println("Culoare galben");
+                break;
+            case 2:
+                System.out.println("Culoare verde");
+                break;
+            default:
+                System.out.println("Ai generat un nr aleator gresit");
+        }
+    }
+
+    public static void CNP() {
+        //1 22 11 26 481256
+        List<Integer> givenList = Arrays.asList(1, 2, 5, 6);
+        Random rand = new Random();
+        int Sex = givenList.get(rand.nextInt(givenList.size()));
+
+        Random An = new Random();
+        int low = 10;
+        int high = 100;
+        int result_An = An.nextInt(high - low) + low;
+
+        Random Luna = new Random();
+        int luna_mic = 1;
+        int luna_mare = 13;
+        int result_luna = Luna.nextInt(luna_mare - luna_mic) + luna_mic;
+
+        Random Zi = new Random();
+        int zi_mic = 1;
+        int zi_mare = 28;
+        int result_zi = Zi.nextInt(zi_mare - zi_mic) + zi_mic;
+
+        Random unic = new Random();
+        int rest_mic = 100000;
+        int rest_mare = 999999;
+        int result_unic = unic.nextInt(rest_mare - rest_mic) + rest_mic;
+
+        System.out.println("CNP aleator este: " + Sex + result_An + result_luna + result_zi + result_unic);
+
+    }
+    
+    public static void doua (){
+        int x = 2;
+int y = 2;
+int z = (((x++) + (++y)) >5 && ((++x)+y)<10);
+        System.out.println("doua" + z);
     }
 }
