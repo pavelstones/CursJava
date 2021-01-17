@@ -120,55 +120,71 @@ public class Tema1 {
         }
     }
 
-    public static void CNP() {
+    static Random rand = new java.util.Random();
+
+    static String intToStr(int numar) {
+        String str = String.valueOf(numar);
+
+        if(numar < 10) {
+            str = "0" + str;
+        }
+
+        return str;
+    }
+
+    static int randomInt(int minim, int maxim) {
+        return rand.nextInt(maxim - minim) + minim;
+    }
+
+    static void CNP() {
         //1 22 11 26 481256
-        List<Integer> givenList = Arrays.asList(1, 2, 5, 6);
-        Random rand = new Random();
+        List<Integer> givenList = Arrays.asList(1, 2, 5, 6); // [1,2,5,6]
         int Sex = givenList.get(rand.nextInt(givenList.size()));
 
-        Random An = new Random();
-        int low = 10;
-        int high = 99;
-        int result_An = An.nextInt(high - low) + low;
+        int low = 0;
+        int high = 100;
+        int result_An = rand.nextInt(high - low) + low;
 
-        Random Luna = new Random();
-        int luna_mic = 1;
-        int luna_mare = 13;
-        int result_luna = Luna.nextInt(luna_mare - luna_mic) + luna_mic;
+        int result_luna = randomInt(1, 13);
 
-        String luna_str = String.valueOf(result_luna);
-
-        if (result_luna < 10) {
-            luna_str = "0" + luna_str;
-        }
+        String luna_str = intToStr(result_luna);
         
-        Random Zi = new Random();
         int zi_mic = 1;
         int zi_mare = 28;
-        int result_zi = Zi.nextInt(zi_mare - zi_mic) + zi_mic;
+        int result_zi = rand.nextInt(zi_mare - zi_mic) + zi_mic;
 
-        String zi_str = String.valueOf(result_zi);
+        String zi_str = intToStr(result_zi);
 
-        if (result_zi < 10) {
-            zi_str = "0" + zi_str;
-        } 
-
-        Random unic = new Random();
         int rest_mic = 100000;
         int rest_mare = 999999;
-        int result_unic = unic.nextInt(rest_mare - rest_mic) + rest_mic;
+        int result_unic = rand.nextInt(rest_mare - rest_mic) + rest_mic;
 
         System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
 
-        if(Sex == 1){
+        if (Sex == 1 || Sex == 5) {
             System.out.println("Este barbat");
-        }else if( Sex == 5){
-            System.out.println("Este barbat");
-        }else if(Sex == 2){
-                    System.out.println("Este femeie");
-                    }
-            else if (Sex == 6){
-                    System.out.println("Este femeie");
-                    }
+        }
+        else if (Sex == 2 || Sex == 6) {
+            System.out.println("Este femeie");
+        }
+
+        if (result_luna == 12 || result_luna == 1 || result_luna == 2) {
+
+        }
+        if (luna_str.equals("12") || luna_str.equals("01") || luna_str.equals("02")) {}
+
+        if (result_An % 4 == 0) {
+            System.out.println("Este an bisect");
+        }
+
+        // alta problema:
+
+        int numar = 45;
+        int primaCifra = numar / 10;
+        int aDouaCifra = numar % 10;
+
+        if (primaCifra - aDouaCifra == 1 || aDouaCifra - primaCifra == 1) {
+            //consecutive
+        }
     }
 }
