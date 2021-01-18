@@ -5,30 +5,37 @@ import java.util.Random;
 
 /**
  *
- * @author APAVEL
+ * @author Andrei PAVEL
  */
 public class Tema1 {
 
     public static void main(String[] args) {
-        //numereAleatoare();
-        //genereazaNumar();
-        //varsta();
-        //numereAleatoare_N1_N2();
-        //triunghi();
-        //divizivil();
-        //semafor();
+        numereAleatoare();
+        genereazaNumar();
+        varsta();
+        numereAleatoare_N1_N2();
+        triunghi();
+        divizivil();
+        semafor();
         CNP();
+        numereIdenticeAdiacente();
 
     }
 
-    public static void numereAleatoare() {
+    static int numereAleatoare() {
         double d = Math.random();
         System.out.println("Numar aleator: " + d);
         System.out.println("Numere intre 0 si 100: " + (int) (Math.random() * 101));
+        int rand_2cifre = numereAleatoare_2cifre();
+        return rand_2cifre;
+    }
+
+    static int numereAleatoare_2cifre() {
         int m = (int) (Math.random() * 100);
         int n = (int) (Math.random() * 100);
         int nRand = m + (n - m);
         System.out.println("Valorile intre M si N sunt:" + nRand);
+        return nRand;
     }
 
     public static void genereazaNumar() {
@@ -46,13 +53,13 @@ public class Tema1 {
 
     public static void varsta() {
 
-        int rand = (int) (Math.random() * 101);
-        System.out.println("Varsta:" + rand);
+        int varsta = (int) (Math.random() * 101);
+        System.out.println("Varsta:" + varsta);
 
-        if (rand > 65) {
-            System.out.println("Persoana a iesit la pensie. Are " + rand + " de ani!");
+        if (varsta > 65) {
+            System.out.println("Persoana a iesit la pensie. Are " + varsta + " de ani!");
         } else {
-            System.out.println("Persoana mai are de lucrat " + (65 - rand) + " de ani!");
+            System.out.println("Persoana mai are de lucrat " + (65 - varsta) + " de ani!");
         }
     }
 
@@ -119,44 +126,51 @@ public class Tema1 {
                 System.out.println("Ai generat un nr aleator gresit");
         }
     }
+    static Random rand = new java.util.Random();
 
-    public static void CNP() {
+    static String intToStr(int numar) {
+        String str = String.valueOf(numar);
+        if (numar < 10) {
+            str = "0" + str;
+        }
+        return str;
+    }
+
+    static int randomInt(int minim, int maxim) {
+        return rand.nextInt(maxim - minim) + minim;
+    }
+
+    static int numereIdenticeAdiacente() {
+
+        int nRand = randomInt(10, 100);
+        System.out.println("Numar" + nRand);
+
+        int primaCifra = nRand / 10;
+        int aDouaCifra = nRand % 10;
+        if (primaCifra - aDouaCifra == 1 || aDouaCifra - primaCifra == 1) {
+            System.out.println("Sunt ADIACENTE");
+        } else if (primaCifra == aDouaCifra || aDouaCifra == primaCifra) {
+            System.out.println("Sunt IDENTICE");
+        }
+
+        return rand.nextInt() * 100;
+    }
+
+    static void CNP() {
         //1 22 11 26 481256
         List<Integer> givenList = Arrays.asList(1, 2, 5, 6);
-        Random rand = new Random();
-        int Sex = givenList.get(rand.nextInt(givenList.size()));
+        Random CNP = new Random();
+        int Sex = givenList.get(CNP.nextInt(givenList.size()));
 
-        Random An = new Random();
-        int low = 10;
-        int high = 99;
-        int result_An = An.nextInt(high - low) + low;
+        int result_An = randomInt(10, 100);
 
-        Random Luna = new Random();
-        int luna_mic = 1;
-        int luna_mare = 13;
-        int result_luna = Luna.nextInt(luna_mare - luna_mic) + luna_mic;
+        int result_luna = randomInt(1, 13);
+        String luna_str = intToStr(result_luna);
 
-        String luna_str = String.valueOf(result_luna);
+        int result_zi = randomInt(1, 29);
+        String zi_str = intToStr(result_zi);
 
-        if (result_luna < 10) {
-            luna_str = "0" + luna_str;
-        }
-
-        Random Zi = new Random();
-        int zi_mic = 1;
-        int zi_mare = 28;
-        int result_zi = Zi.nextInt(zi_mare - zi_mic) + zi_mic;
-
-        String zi_str = String.valueOf(result_zi);
-
-        if (result_zi < 10) {
-            zi_str = "0" + zi_str;
-        }
-
-        Random unic = new Random();
-        int rest_mic = 100000;
-        int rest_mare = 999999;
-        int result_unic = unic.nextInt(rest_mare - rest_mic) + rest_mic;
+        int result_unic = randomInt(100000, 999999);
 
         System.out.println("CNP aleator este: " + Sex + result_An + luna_str + zi_str + result_unic);
 
@@ -165,6 +179,35 @@ public class Tema1 {
         }
         if (Sex == 2 || Sex == 6) {
             System.out.println("Este femeie");
+
         }
+        if (result_An % 4 == 0) {
+            System.out.println("Este nascut in an bisec! ");
+        }
+        switch (luna_str) {
+            case "12":
+            case "01":
+            case "02":
+                System.out.println("Este nascut Iarna ");
+                break;
+            case "03":
+            case "04":
+            case "05":
+                System.out.println("Este nascut Primavara");
+                break;
+            case "06":
+            case "07":
+            case "08":
+                System.out.println("Este nascut Vara");
+                break;
+            case "09":
+            case "10":
+            case "11":
+                System.out.println("Este nascut Toamna");
+                break;
+            default:
+                break;
+        }
+
     }
 }
